@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>默认的iterator接口</h2>
+    <p>具有默认iterator接口的数据结构：
+        <ul>
+            <li>Array</li>
+            <li>Map</li>
+            <li>Set</li>
+            <li>String</li>
+            <li>TypedArray</li>
+            <li>函数的 arguments 对象</li>
+            <li>NodeList 对象</li>
+        </ul>
+    </p>
+    <script>
+        const obj = {
+            [Symbol.iterator]: function () {
+                return {
+                    next: function() {
+                        return {
+                            value: 1,
+                            done: true
+                        };
+                    }
+                };
+            }
+        };
+
+        
+        /******************************************************************/
+        let array = ['a', 'b', 'c'];
+        console.group('array')
+        console.info(array[Symbol.iterator]);
+        console.info(Object.getPrototypeOf(array)); //返回array的原型
+        console.info(Object.getOwnPropertyNames(array)); //返回一个数组，该数组对元素是array自身拥有的枚举或不可枚举属性名称字符串
+        console.info(Object.getOwnPropertySymbols(Array.prototype));
+        console.groupEnd()
+        
+        let str = 'abcd';
+        console.group('string');
+        console.info(Object.getPrototypeOf(str));
+        console.groupEnd();
+
+        let obj = {
+            a: 1,
+            b: 2
+        };
+        console.group('object');
+        console.info(Object.getPrototypeOf(obj));
+        console.groupEnd('object end')
+    </script>
+</body>
+</html>
