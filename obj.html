@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>为一个对象部署iterator接口</h2>
+    <script>
+        let obj = {
+            data: ['hello', 'world'],
+            [Symbol.iterator] () {
+                const self = this;
+                let index = 0;
+                return {
+                    next () {
+                        console.log(this);
+                        if (index < self.data.length) {
+                            return {
+                                value: self.data[index++],
+                                done: false
+                            };
+                        } else {
+                            return {
+                                value: undefined,
+                                done: true
+                            };
+                        }
+                    }
+                };
+            }
+        };
+        for (let v of obj) {
+            console.log(v);
+        }
+    </script>
+</body>
+</html>
