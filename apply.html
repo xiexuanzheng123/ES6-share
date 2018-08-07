@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>1 解构: </h3>
+        <i>对数组和Set结构进行解构赋值，会默认调用Symbol.iterator方法</i>
+    <h3>2 扩展运算</h3>
+        <i>扩展运算符也是调用Iterator</i>
+    <script>
+        let set = new Set().add('a').add('b').add('c');
+        let [x, y] = set;
+        console.group('解构');
+        console.info(x);//'a'
+        console.info(y);//'b'
+
+        let [first, ...rest] = set;
+        console.info(first);//'a'
+        console.info(rest);//["b", "c"]
+        console.groupEnd();
+        /***************************************/
+
+        let str = 'hello';
+        console.group('扩展');
+        console.log([...str]);
+        let arr = ['b', 'c'];
+        console.log(['a', ...arr, 'd']);
+        console.groupEnd();
+    </script>
+</body>
+</html>
