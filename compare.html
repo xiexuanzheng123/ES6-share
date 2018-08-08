@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>几种遍历语法的比较</h2>
+    <p>1原始的方法麻烦</p>
+    <p>2forEach无法中途跳出，break命令或者return不能起效果</p>
+    <p>3forIn遍历出来的键名是字符串，还会遍历其他键，原型链上的键</p>
+    <b>总之，for in 主要是为了对象而服务</b>
+    <p>for of 可以break、continue、return</p>
+    <script>
+        var myArray = ['a', 'b', 'c'];
+        console.group('第一种原始的');
+        for (let index = 0; index < myArray.length; index++) {
+            console.log(myArray[index]);
+        }
+        console.groupEnd();
+
+        console.group('第二种forEach');
+        myArray.forEach(function(element, index) {
+            console.log(element);
+        });
+        console.groupEnd();
+
+        console.group('第三种for in');
+        for (let index in myArray) {
+            console.log(typeof index);
+            console.log(myArray[index]);
+        }
+        console.groupEnd('123');
+
+        /**break跳出循环**/
+        console.group('for of 跳出循环');
+        let arr = [1, 2, 3, 4, 5, 6];
+        for (let n of arr) {
+            if (n > 4) {
+                break;
+            }
+            console.log(n);
+        }
+        console.groupEnd();
+    </script>
+</body>
+</html>
