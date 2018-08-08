@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let engines = new Set(['Gecko', 'Trident', 'Webkit', 'Webkit']);
+        for (let engine of engines) {
+            console.log(engine);
+        }
+        let es6 = new Map();
+        es6.set('edition', 6);
+        es6.set('committee', 'TC39');
+        es6.set('standard', 'ECMA-262');
+        for (let v of es6) {
+            console.log(v);//返回的是一个数组，遍历顺序是添加顺序
+        }
+    </script>
+</body>
+</html>
