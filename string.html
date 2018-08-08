@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>字符串的原生Iterator接口</h3>
+    <h3>手动修改遍历器接口</h3>
+    <script>
+        var str = 'hi';
+        typeof str[Symbol.iterator];//function
+
+        var iterator = str[Symbol.iterator]();//返回一个遍历器对象
+        iterator.next();
+        iterator.next();
+        iterator.next();//{value: undefined, done: true}
+
+    </script>
+</body>
+</html>
