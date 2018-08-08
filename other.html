@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>entries() keys() value() 都会返回一个遍历器对象</h3>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <script>
+        let arr = ['a', 'b', 'c'];
+        for (let pair of arr.entries()) {
+            console.log(pair);
+        }
+
+
+        /**NodeList*/
+        let paras = document.querySelectorAll('p');
+        console.log(paras);
+        for (let p of paras) {
+            p.classList.add('test');
+        }
+
+
+
+        /******arguments对象*/
+        function printArgs() {
+            for (let x of arguments) {
+                console.log(x);
+            }
+        }
+        printArgs('a', 'b');
+    </script>
+</body>
+</html>
