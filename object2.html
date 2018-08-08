@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let es6 = {
+            edition: 6,
+            committee: 'TC39',
+            standard: 'ECMA-262'
+        };
+        for (let e in es6) {
+            console.log(e);
+        }
+
+        for (let e of es6) { //Uncaught TypeError: es6 is not iterable
+            console.log(e);
+        }
+    </script>
+</body>
+</html>
