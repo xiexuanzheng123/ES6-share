@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h4></h4>
+    <script>
+        console.group('for...of');
+        const arr = ['red', 'green', 'blue'];
+        for (let v of arr) {
+            console.log(v);
+        }
+        console.groupEnd();
+
+        /***forEach**/
+        console.group('forEach');
+        arr.forEach((element, index) => {
+            console.log(element);
+        });
+        console.groupEnd();
+
+        /**for in***/
+        console.group('for in');
+        for (let i in arr) {
+            console.log(i);
+        }
+        console.groupEnd();
+
+        /*****in 和of 的另一个不同*****/
+        const array = [3, 5, 7];
+        array.foo = 'hello';
+        console.group('in 和 of 的不同');
+        for (let i in array) {
+            console.log(i);
+        }
+        console.info('in可以找出不是数字的键');
+        for (let v of array) {
+            console.log(v);
+        }
+        console.info('of找不出键为非数字的值');
+        console.groupEnd();
+    </script>
+</body>
+</html>
